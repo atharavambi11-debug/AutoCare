@@ -1,0 +1,343 @@
+/* client/src/pages/BookService.css */
+/* Purpose: Styles for the Book Service page */
+
+/* ─── Page Wrapper ─────────────────────────────────────────────────────────── */
+.book-service-page {
+  min-height: 100vh;
+  background-color: #f4f6f9;
+  padding-bottom: 60px;
+}
+
+/* ─── Hero Banner ──────────────────────────────────────────────────────────── */
+.book-hero {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  padding: 70px 20px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Decorative background line */
+.book-hero::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 40px,
+    rgba(229, 57, 53, 0.03) 40px,
+    rgba(229, 57, 53, 0.03) 80px
+  );
+}
+
+.book-hero-content {
+  position: relative;
+  z-index: 1;
+}
+
+.book-hero-content h1 {
+  font-size: 2.8rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0 0 12px 0;
+  letter-spacing: -0.5px;
+}
+
+.book-hero-content h1 span {
+  color: #e53935;
+}
+
+.book-hero-content p {
+  font-size: 1.1rem;
+  color: #b0bec5;
+  margin: 0;
+}
+
+/* ─── Form Container ───────────────────────────────────────────────────────── */
+.book-container {
+  max-width: 900px;
+  margin: -30px auto 0 auto;
+  padding: 0 20px;
+  position: relative;
+  z-index: 2;
+}
+
+/* ─── Alert Messages ───────────────────────────────────────────────────────── */
+.alert {
+  padding: 16px 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.alert-success {
+  background-color: #e8f5e9;
+  color: #2e7d32;
+  border: 1px solid #a5d6a7;
+  border-left: 4px solid #2e7d32;
+}
+
+.alert-error {
+  background-color: #ffebee;
+  color: #c62828;
+  border: 1px solid #ef9a9a;
+  border-left: 4px solid #c62828;
+}
+
+/* ─── Booking Form ─────────────────────────────────────────────────────────── */
+.booking-form {
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+}
+
+/* ─── Form Section ─────────────────────────────────────────────────────────── */
+.form-section {
+  padding: 32px 36px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.form-section:last-of-type {
+  border-bottom: none;
+}
+
+/* Section Title with numbered circle */
+.section-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #1a1a2e;
+  margin: 0 0 24px 0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.section-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background: linear-gradient(135deg, #e53935, #b71c1c);
+  color: #ffffff;
+  border-radius: 50%;
+  font-size: 0.9rem;
+  font-weight: 800;
+  flex-shrink: 0;
+}
+
+/* ─── Form Grid ────────────────────────────────────────────────────────────── */
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+/* ─── Form Group ───────────────────────────────────────────────────────────── */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-group.full-width {
+  grid-column: 1 / -1;
+  margin-top: 4px;
+}
+
+.form-group label {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #37474f;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+.required {
+  color: #e53935;
+  margin-left: 2px;
+}
+
+/* ─── Input Styles ─────────────────────────────────────────────────────────── */
+.form-input {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1.5px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  color: #263238;
+  background-color: #fafafa;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease,
+    background-color 0.25s ease;
+  box-sizing: border-box;
+  font-family: inherit;
+  outline: none;
+}
+
+.form-input:focus {
+  border-color: #e53935;
+  box-shadow: 0 0 0 3px rgba(229, 57, 53, 0.1);
+  background-color: #ffffff;
+}
+
+.form-input::placeholder {
+  color: #b0bec5;
+  font-size: 0.9rem;
+}
+
+/* Select specific styles */
+.form-select {
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%23607d8b' d='M6 8L0 0h12z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  padding-right: 40px;
+}
+
+.form-select option {
+  color: #263238;
+  background-color: #ffffff;
+}
+
+/* Textarea specific styles */
+.form-textarea {
+  resize: vertical;
+  min-height: 90px;
+  line-height: 1.5;
+}
+
+/* ─── Submit Section ───────────────────────────────────────────────────────── */
+.form-submit {
+  padding: 28px 36px;
+  background: linear-gradient(to right, #f8f9fa, #ffffff);
+  display: flex;
+  justify-content: center;
+  border-top: 1px solid #f0f0f0;
+}
+
+/* ─── Submit Button ────────────────────────────────────────────────────────── */
+.submit-btn {
+  background: linear-gradient(135deg, #e53935, #b71c1c);
+  color: #ffffff;
+  border: none;
+  padding: 16px 52px;
+  font-size: 1.05rem;
+  font-weight: 700;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+  letter-spacing: 0.3px;
+  box-shadow: 0 4px 16px rgba(229, 57, 53, 0.35);
+  min-width: 220px;
+}
+
+.submit-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(229, 57, 53, 0.45);
+}
+
+.submit-btn:active:not(:disabled) {
+  transform: translateY(0);
+  box-shadow: 0 4px 12px rgba(229, 57, 53, 0.3);
+}
+
+.submit-btn:disabled {
+  opacity: 0.75;
+  cursor: not-allowed;
+}
+
+/* ─── Loading Spinner in Button ────────────────────────────────────────────── */
+.btn-loading {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: center;
+}
+
+.spinner {
+  width: 18px;
+  height: 18px;
+  border: 3px solid rgba(255, 255, 255, 0.4);
+  border-top-color: #ffffff;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+  display: inline-block;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ─── Responsive: Tablet ───────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .book-hero-content h1 {
+    font-size: 2rem;
+  }
+
+  .form-section {
+    padding: 24px 20px;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .form-submit {
+    padding: 20px;
+  }
+
+  .submit-btn {
+    width: 100%;
+    padding: 14px 20px;
+  }
+}
+
+/* ─── Responsive: Mobile ───────────────────────────────────────────────────── */
+@media (max-width: 480px) {
+  .book-hero {
+    padding: 50px 16px;
+  }
+
+  .book-hero-content h1 {
+    font-size: 1.7rem;
+  }
+
+  .book-hero-content p {
+    font-size: 0.95rem;
+  }
+
+  .book-container {
+    padding: 0 12px;
+  }
+
+  .section-title {
+    font-size: 1rem;
+  }
+
+  .booking-form {
+    border-radius: 12px;
+  }
+}

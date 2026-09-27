@@ -1,0 +1,89 @@
+/* client/src/components/Loader.css */
+
+.loader-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-4);
+  padding: var(--space-8);
+}
+
+.loader-sm {
+  padding: var(--space-4);
+}
+
+.loader-lg {
+  min-height: 400px;
+}
+
+/* ============================================
+   Spinner Animation
+   ============================================ */
+.loader-spinner {
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+
+.spinner-ring {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 3px solid transparent;
+}
+
+.spinner-ring:nth-child(1) {
+  border-top-color: var(--primary);
+  animation: spin 1s linear infinite;
+}
+
+.spinner-ring:nth-child(2) {
+  border-right-color: var(--secondary);
+  animation: spin 1.5s linear infinite reverse;
+  width: 60px;
+  height: 60px;
+  top: 10px;
+  left: 10px;
+}
+
+.spinner-ring:nth-child(3) {
+  border-bottom-color: var(--accent);
+  animation: spin 2s linear infinite;
+  width: 40px;
+  height: 40px;
+  top: 20px;
+  left: 20px;
+}
+
+.spinner-car {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.25rem;
+  animation: pulse 1s ease-in-out infinite;
+}
+
+.loader-message {
+  color: var(--gray-500);
+  font-size: var(--text-sm);
+  margin: 0;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+/* ============================================
+   Keyframes
+   ============================================ */
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}

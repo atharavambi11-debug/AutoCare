@@ -1,0 +1,522 @@
+/* client/src/pages/Register.css */
+
+/* ===========================
+   FONTS
+   Oswald: condensed display face for the brand/headline side
+   Inter: body + form face — clear at small sizes
+=========================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Inter',sans-serif;
+}
+
+body{
+    background:#f3f5f8;
+}
+
+/* ===========================
+   DESIGN TOKENS
+=========================== */
+
+:root{
+    --ink:#141824;
+    --panel:#1b2130;
+    --panel-line:rgba(255,255,255,.07);
+    --amber:#f2a33d;
+    --amber-deep:#d9862a;
+    --paper:#f3f5f8;
+    --card:#ffffff;
+    --text:#171b24;
+    --muted:#5c6577;
+    --border:#dfe3ea;
+    --error:#dc2626;
+    --error-bg:#fdecec;
+    --success:#15803d;
+    --success-bg:#e8f6ec;
+}
+
+/* ===========================
+   MAIN PAGE
+=========================== */
+
+.register-page{
+    width:100%;
+    min-height:100vh;
+    display:flex;
+    overflow:hidden;
+}
+
+/* ===========================
+   LEFT SIDE — diagnostic panel
+=========================== */
+
+.register-left{
+    flex:1;
+    background:linear-gradient(160deg,#1b2032,var(--ink) 60%);
+    color:#f5f6f8;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    position:relative;
+    padding:60px;
+    overflow:hidden;
+}
+
+.glow{
+    position:absolute;
+    border-radius:50%;
+    filter:blur(90px);
+    opacity:.55;
+    pointer-events:none;
+}
+
+.glow--one{
+    width:420px;
+    height:420px;
+    top:-140px;
+    left:-120px;
+    background:radial-gradient(circle,rgba(242,163,61,.35),transparent 70%);
+}
+
+.glow--two{
+    width:380px;
+    height:380px;
+    bottom:-160px;
+    right:-100px;
+    background:radial-gradient(circle,rgba(90,110,220,.28),transparent 70%);
+}
+
+.register-overlay{
+    width:100%;
+    max-width:460px;
+    z-index:10;
+}
+
+.register-brand{
+    margin-bottom:64px;
+    display:flex;
+    align-items:center;
+    gap:18px;
+}
+
+.brand-mark{
+    width:56px;
+    height:56px;
+    flex-shrink:0;
+    border-radius:16px;
+    background:linear-gradient(135deg,var(--amber),#e07a2c);
+    color:#241505;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-family:'Oswald',sans-serif;
+    font-size:20px;
+    font-weight:600;
+    letter-spacing:.5px;
+    box-shadow:0 8px 24px rgba(242,163,61,.35);
+}
+
+.register-brand h1{
+    font-family:'Oswald',sans-serif;
+    font-size:30px;
+    font-weight:600;
+    letter-spacing:.3px;
+    line-height:1.1;
+    color:#f5f6f8;
+}
+
+.brand-tagline{
+    font-size:14px;
+    color:#a7adba;
+    margin-top:4px;
+}
+
+.register-info h2{
+    font-family:'Oswald',sans-serif;
+    font-size:32px;
+    font-weight:500;
+    line-height:1.25;
+    margin-bottom:20px;
+    color:#f5f6f8;
+}
+
+.register-info p{
+    font-size:16px;
+    line-height:1.7;
+    margin-bottom:32px;
+    color:#c2c7d1;
+    max-width:42ch;
+}
+
+.register-info ul{
+    list-style:none;
+    display:flex;
+    flex-direction:column;
+    gap:16px;
+}
+
+.register-info li{
+    font-size:15.5px;
+    color:#e3e5ea;
+    display:flex;
+    align-items:center;
+    gap:14px;
+}
+
+.bullet-mark{
+    width:9px;
+    height:9px;
+    border-radius:50%;
+    background:var(--amber);
+    box-shadow:0 0 10px rgba(242,163,61,.7);
+    flex-shrink:0;
+}
+
+/* ===========================
+   RIGHT SIDE
+=========================== */
+
+.register-right{
+    flex:1;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:40px;
+    background:var(--paper);
+}
+
+.register-container{
+    width:100%;
+    max-width:480px;
+    background:var(--card);
+    border-radius:22px;
+    padding:44px;
+    box-shadow:0 24px 60px rgba(20,24,36,.1);
+    animation:fadeUp .6s ease;
+}
+
+@keyframes fadeUp{
+
+from{
+    opacity:0;
+    transform:translateY(24px);
+}
+
+to{
+    opacity:1;
+    transform:translateY(0);
+}
+
+}
+
+.form-header{
+    margin-bottom:32px;
+}
+
+.register-container h2{
+    font-family:'Oswald',sans-serif;
+    font-size:28px;
+    font-weight:600;
+    color:var(--text);
+    margin-bottom:8px;
+}
+
+.register-container p{
+    color:var(--muted);
+    font-size:15px;
+}
+
+/* ===========================
+   FORM
+=========================== */
+
+.register-form{
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+}
+
+.form-row{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px;
+}
+
+.form-group{
+    display:flex;
+    flex-direction:column;
+    min-width:0;
+}
+
+.form-group label{
+    margin-bottom:7px;
+    font-size:13.5px;
+    font-weight:600;
+    color:var(--text);
+}
+
+.form-group input{
+    width:100%;
+    padding:13px 16px;
+    border:1.5px solid transparent;
+    border-radius:12px;
+    outline:none;
+    font-size:15px;
+    color:var(--text);
+    background:#f2f4f7;
+    transition:border-color .15s ease,box-shadow .15s ease,background .15s ease;
+}
+
+.form-group input::placeholder{
+    color:#9aa1ad;
+}
+
+.form-group input:hover{
+    background:#ecf0f4;
+}
+
+.form-group input:focus{
+    background:#fff;
+    border-color:var(--amber);
+    box-shadow:0 0 0 4px rgba(242,163,61,.15);
+}
+
+/* ==========================================
+   PASSWORD FIELD
+========================================== */
+
+.password-wrapper{
+    position:relative;
+    display:flex;
+    align-items:center;
+}
+
+.password-wrapper input{
+    width:100%;
+    padding-right:58px;
+}
+
+.password-toggle{
+    position:absolute;
+    right:14px;
+    border:none;
+    background:transparent;
+    cursor:pointer;
+    font-size:12.5px;
+    font-weight:600;
+    color:var(--muted);
+    letter-spacing:.2px;
+    padding:4px 2px;
+}
+
+.password-toggle:hover{
+    color:var(--amber-deep);
+}
+
+/* ==========================================
+   BUTTON
+========================================== */
+
+.register-btn{
+    width:100%;
+    padding:14px;
+    border:none;
+    border-radius:12px;
+    background:linear-gradient(135deg,var(--amber),#e07a2c);
+    color:#241505;
+    font-size:15.5px;
+    font-weight:600;
+    cursor:pointer;
+    transition:box-shadow .15s ease,transform .1s ease;
+    margin-top:6px;
+    box-shadow:0 12px 24px rgba(242,163,61,.3);
+}
+
+.register-btn:hover{
+    box-shadow:0 14px 28px rgba(242,163,61,.42);
+}
+
+.register-btn:active{
+    transform:scale(.99);
+}
+
+.register-btn:disabled{
+    background:#dfe3ea;
+    color:#9aa1ad;
+    cursor:not-allowed;
+}
+
+/* ==========================================
+   ALERT BOXES
+========================================== */
+
+.error-box,
+.success-box{
+    padding:13px 16px;
+    border-radius:12px;
+    margin-bottom:22px;
+    font-size:14.5px;
+    font-weight:500;
+}
+
+.error-box{
+    background:var(--error-bg);
+    color:var(--error);
+}
+
+.success-box{
+    background:var(--success-bg);
+    color:var(--success);
+}
+
+/* ==========================================
+   FOOTER
+========================================== */
+
+.register-footer{
+    margin-top:28px;
+    text-align:center;
+    font-size:14.5px;
+    color:var(--muted);
+}
+
+.login-link{
+    text-decoration:none;
+    color:var(--amber-deep);
+    font-weight:600;
+    margin-left:4px;
+}
+
+.login-link:hover{
+    text-decoration:underline;
+}
+
+/* ==========================================
+   SCROLLBAR
+========================================== */
+
+::-webkit-scrollbar{
+    width:8px;
+}
+
+::-webkit-scrollbar-thumb{
+    background:var(--amber);
+    border-radius:10px;
+}
+
+::-webkit-scrollbar-track{
+    background:#f1f5f9;
+}
+
+/* ==========================================
+   FOCUS-VISIBLE (KEYBOARD)
+========================================== */
+
+button:focus-visible,
+input:focus-visible,
+a:focus-visible{
+    outline:2px solid var(--amber-deep);
+    outline-offset:2px;
+}
+
+/* ==========================================
+   RESPONSIVE - TABLET
+========================================== */
+
+@media(max-width:992px){
+
+.register-page{
+    flex-direction:column;
+}
+
+.register-left{
+    min-height:340px;
+    padding:40px 30px;
+}
+
+.register-right{
+    padding:30px 20px;
+}
+
+.register-info h2{
+    font-size:26px;
+}
+
+.form-row{
+    grid-template-columns:1fr;
+}
+
+}
+
+/* ==========================================
+   RESPONSIVE - MOBILE
+========================================== */
+
+@media(max-width:576px){
+
+.register-left{
+    min-height:auto;
+    padding:36px 24px;
+}
+
+.register-brand{
+    margin-bottom:36px;
+}
+
+.register-brand h1{
+    font-size:24px;
+}
+
+.brand-mark{
+    width:46px;
+    height:46px;
+    font-size:17px;
+}
+
+.register-info h2{
+    font-size:22px;
+    margin-bottom:14px;
+}
+
+.register-info p{
+    font-size:14.5px;
+    margin-bottom:20px;
+}
+
+.register-container{
+    padding:26px;
+    border-radius:18px;
+}
+
+.register-container h2{
+    font-size:23px;
+}
+
+.form-group input{
+    padding:12px 14px;
+    font-size:14.5px;
+}
+
+.register-btn{
+    padding:13px;
+    font-size:15px;
+}
+
+}
+
+/* ==========================================
+   REDUCED MOTION
+========================================== */
+
+@media(prefers-reduced-motion:reduce){
+
+.register-container{
+    animation:none;
+}
+
+}

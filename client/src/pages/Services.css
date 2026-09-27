@@ -1,0 +1,252 @@
+/* client/src/pages/Services.css */
+
+.services-page {
+  padding-top: var(--navbar-height);
+}
+
+/* ============================================
+   Hero
+   ============================================ */
+.services-hero {
+  position: relative;
+  background: linear-gradient(135deg, var(--secondary-dark), var(--secondary));
+  padding: var(--space-16) 0;
+  text-align: center;
+  overflow: hidden;
+}
+
+.services-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 70% 30%, rgba(230, 57, 70, 0.2), transparent 60%);
+}
+
+.services-hero-content {
+  position: relative;
+  z-index: 1;
+  color: var(--white);
+}
+
+.services-hero-content h1 {
+  font-size: var(--text-5xl);
+  color: var(--white);
+  margin-bottom: var(--space-4);
+}
+
+.services-hero-content p {
+  font-size: var(--text-xl);
+  color: rgba(255, 255, 255, 0.8);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* ============================================
+   Filter Bar
+   ============================================ */
+.services-filter-bar {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  margin-bottom: var(--space-5);
+  flex-wrap: wrap;
+}
+
+.search-wrapper {
+  position: relative;
+  flex: 1;
+  min-width: 250px;
+  max-width: 500px;
+}
+
+.search-icon {
+  position: absolute;
+  left: var(--space-3);
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1rem;
+  pointer-events: none;
+}
+
+.services-search-input {
+  width: 100%;
+  padding: 0.75rem 2.5rem 0.75rem 2.5rem;
+  border: 2px solid var(--gray-200);
+  border-radius: var(--radius-full);
+  font-size: var(--text-base);
+  color: var(--gray-800);
+  transition: var(--transition);
+  background-color: var(--white);
+}
+
+.services-search-input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(230, 57, 70, 0.1);
+  outline: none;
+}
+
+.search-clear {
+  position: absolute;
+  right: var(--space-3);
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: var(--gray-400);
+  cursor: pointer;
+  font-size: var(--text-sm);
+  padding: 4px;
+  border-radius: 50%;
+  line-height: 1;
+}
+
+.search-clear:hover {
+  color: var(--error);
+  background-color: var(--error-light);
+}
+
+.results-count {
+  color: var(--gray-500);
+  font-size: var(--text-sm);
+  white-space: nowrap;
+  margin-left: auto;
+}
+
+/* ============================================
+   Category Pills
+   ============================================ */
+.category-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-bottom: var(--space-8);
+}
+
+.category-pill {
+  padding: 0.4rem 1rem;
+  border-radius: var(--radius-full);
+  border: 2px solid var(--gray-200);
+  background-color: var(--white);
+  color: var(--gray-600);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.category-pill:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.category-pill-active {
+  background-color: var(--primary);
+  border-color: var(--primary);
+  color: var(--white);
+}
+
+.category-pill-active:hover {
+  color: var(--white);
+  background-color: var(--primary-dark);
+  border-color: var(--primary-dark);
+}
+
+/* ============================================
+   Services Grid
+   ============================================ */
+.services-listing-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: var(--space-6);
+}
+
+/* ============================================
+   Empty State
+   ============================================ */
+.no-results {
+  text-align: center;
+  padding: var(--space-16) var(--space-6);
+}
+
+.no-results-icon {
+  font-size: 4rem;
+  margin-bottom: var(--space-4);
+}
+
+.no-results h3 {
+  color: var(--gray-700);
+  margin-bottom: var(--space-3);
+}
+
+.no-results p {
+  color: var(--gray-500);
+  margin: 0;
+}
+
+.link-btn {
+  background: none;
+  border: none;
+  color: var(--primary);
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: underline;
+  padding: 0 var(--space-1);
+  font-size: inherit;
+}
+
+/* Error */
+.services-error {
+  text-align: center;
+  padding: var(--space-12);
+  color: var(--error);
+}
+
+/* ============================================
+   Bottom CTA
+   ============================================ */
+.services-cta-section {
+  padding: var(--space-12) 0;
+  background-color: var(--gray-50);
+}
+
+.services-cta-card {
+  background: linear-gradient(135deg, var(--secondary), var(--secondary-light));
+  border-radius: var(--radius-xl);
+  padding: var(--space-12);
+  text-align: center;
+  color: var(--white);
+}
+
+.services-cta-card h2 {
+  color: var(--white);
+  font-size: var(--text-3xl);
+  margin-bottom: var(--space-3);
+}
+
+.services-cta-card p {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: var(--text-lg);
+  margin-bottom: var(--space-6);
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .services-filter-bar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .search-wrapper {
+    max-width: none;
+  }
+
+  .results-count {
+    margin-left: 0;
+  }
+
+  .services-listing-grid {
+    grid-template-columns: 1fr;
+  }
+}

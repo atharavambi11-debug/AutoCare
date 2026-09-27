@@ -1,0 +1,256 @@
+/* client/src/pages/AdminBookings.css */
+
+.admin-bookings-page {
+  padding: 32px;
+}
+
+.admin-bookings-loading {
+  min-height: 60vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  color: #6b7280;
+}
+
+.dash-spinner-ring {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #e5e7eb;
+  border-top-color: #e63946;
+  border-radius: 50%;
+  animation: admin-spin 0.8s linear infinite;
+}
+
+@keyframes admin-spin {
+  to { transform: rotate(360deg); }
+}
+
+.dash-alert {
+  padding: 12px 16px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  font-size: 0.95rem;
+}
+
+.dash-alert-error {
+  background: #fef2f2;
+  color: #b91c1c;
+  border: 1px solid #fecaca;
+}
+
+/* ── Header ── */
+.admin-bookings-header {
+  margin-bottom: 24px;
+}
+
+.admin-bookings-header h1 {
+  margin: 0 0 4px 0;
+  font-size: 1.75rem;
+  color: #1d3557;
+}
+
+.admin-bookings-header p {
+  margin: 0;
+  color: #6b7280;
+}
+
+/* ── Filter bar ── */
+.admin-bookings-filter-bar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.admin-bookings-filter-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #374151;
+}
+
+.admin-bookings-filter-buttons {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.admin-bookings-filter-btn {
+  border: 1px solid #d1d5db;
+  background: #fff;
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.admin-bookings-filter-btn:hover {
+  background: #f3f4f6;
+}
+
+.admin-bookings-filter-btn-active {
+  background: #1d3557;
+  color: #fff;
+  border-color: #1d3557;
+}
+
+/* ── Empty state ── */
+.admin-bookings-empty {
+  text-align: center;
+  padding: 60px 20px;
+  color: #6b7280;
+}
+
+/* ── Booking cards ── */
+.admin-bookings-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.admin-booking-card {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.admin-booking-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px 20px;
+  cursor: pointer;
+  flex-wrap: wrap;
+}
+
+.admin-booking-header:hover {
+  background: #f9fafb;
+}
+
+.admin-booking-main h3 {
+  margin: 0 0 4px 0;
+  font-size: 1rem;
+  color: #1d3557;
+}
+
+.admin-booking-main p {
+  margin: 0;
+  font-size: 0.85rem;
+  color: #6b7280;
+}
+
+.admin-booking-header-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.admin-booking-date {
+  font-size: 0.8rem;
+  color: #9ca3af;
+  white-space: nowrap;
+}
+
+.expand-icon {
+  color: #9ca3af;
+  font-size: 0.75rem;
+}
+
+/* Status badges — shared naming with MyBookings.jsx / AdminDashboard.jsx */
+.status-badge {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.status-pending    { background: #fef3c7; color: #92400e; }
+.status-confirmed  { background: #dbeafe; color: #1e40af; }
+.status-assigned   { background: #ede9fe; color: #5b21b6; }
+.status-inprogress { background: #fed7aa; color: #9a3412; }
+.status-completed  { background: #d1fae5; color: #065f46; }
+.status-delivered  { background: #cce3de; color: #1d3557; }
+
+/* ── Expanded details ── */
+.admin-booking-details {
+  padding: 0 20px 20px 20px;
+  border-top: 1px solid #f3f4f6;
+}
+
+.admin-booking-details-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 10px;
+  padding: 16px 0;
+  font-size: 0.9rem;
+  color: #374151;
+}
+
+.admin-booking-details-full {
+  grid-column: 1 / -1;
+}
+
+.admin-booking-controls {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 14px;
+  align-items: end;
+  padding-top: 12px;
+  border-top: 1px dashed #e5e7eb;
+}
+
+.admin-booking-control {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.admin-booking-control label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #374151;
+}
+
+.admin-booking-control select,
+.admin-booking-control input {
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  padding: 8px 10px;
+  font-size: 0.9rem;
+  font-family: inherit;
+}
+
+.admin-booking-control select:focus,
+.admin-booking-control input:focus {
+  outline: none;
+  border-color: #e63946;
+}
+
+.admin-booking-delete-btn {
+  border: 1px solid #fecaca;
+  background: #fff;
+  color: #b91c1c;
+  padding: 9px 14px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.85rem;
+  cursor: pointer;
+  height: fit-content;
+}
+
+.admin-booking-delete-btn:hover:not(:disabled) {
+  background: #fef2f2;
+}
+
+.admin-booking-delete-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}

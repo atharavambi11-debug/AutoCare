@@ -1,0 +1,307 @@
+/* client/src/pages/AdminServices.css */
+
+.admin-services-page {
+  padding: 32px;
+}
+
+.admin-services-loading {
+  min-height: 60vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  color: #6b7280;
+}
+
+/* ── Header ── */
+.admin-services-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 28px;
+  flex-wrap: wrap;
+}
+
+.admin-services-header h1 {
+  margin: 0 0 4px 0;
+  font-size: 1.75rem;
+  color: #1d3557;
+}
+
+.admin-services-header p {
+  margin: 0;
+  color: #6b7280;
+}
+
+.admin-services-add-btn {
+  border: none;
+  background: #e63946;
+  color: #fff;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.15s ease;
+}
+
+.admin-services-add-btn:hover {
+  background: #d62839;
+}
+
+/* ── Alerts (shared pattern used across admin pages) ── */
+.dash-alert {
+  padding: 12px 16px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  font-size: 0.95rem;
+}
+
+.dash-alert-error {
+  background: #fef2f2;
+  color: #b91c1c;
+  border: 1px solid #fecaca;
+}
+
+.dash-spinner-ring {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #e5e7eb;
+  border-top-color: #e63946;
+  border-radius: 50%;
+  animation: admin-spin 0.8s linear infinite;
+}
+
+@keyframes admin-spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ── Empty state ── */
+.admin-services-empty {
+  text-align: center;
+  padding: 60px 20px;
+  color: #6b7280;
+}
+
+/* ── Grid of service cards ── */
+.admin-services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.admin-service-card {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: box-shadow 0.15s ease;
+}
+
+.admin-service-card:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+
+.admin-service-image {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+  background: #f3f4f6;
+}
+
+.admin-service-body {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.admin-service-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.admin-service-top h3 {
+  margin: 0;
+  font-size: 1.05rem;
+  color: #1d3557;
+}
+
+.admin-service-price {
+  font-weight: 700;
+  color: #e63946;
+  white-space: nowrap;
+}
+
+.admin-service-description {
+  margin: 0;
+  color: #4b5563;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.admin-service-meta {
+  display: flex;
+  gap: 6px;
+  font-size: 0.8rem;
+  color: #9ca3af;
+}
+
+.admin-service-features {
+  margin: 4px 0 0 0;
+  padding-left: 18px;
+  font-size: 0.85rem;
+  color: #4b5563;
+}
+
+.admin-service-features li {
+  margin-bottom: 2px;
+}
+
+.admin-service-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.admin-service-edit-btn,
+.admin-service-delete-btn {
+  flex: 1;
+  border: 1px solid #e5e7eb;
+  background: #fff;
+  padding: 8px 10px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.admin-service-edit-btn:hover {
+  background: #f3f4f6;
+}
+
+.admin-service-delete-btn {
+  color: #b91c1c;
+  border-color: #fecaca;
+}
+
+.admin-service-delete-btn:hover:not(:disabled) {
+  background: #fef2f2;
+}
+
+.admin-service-delete-btn:disabled,
+.admin-service-edit-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* ── Add/Edit form modal ── */
+.admin-services-form-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  z-index: 1000;
+}
+
+.admin-services-form-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 28px;
+  width: 100%;
+  max-width: 520px;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.admin-services-form-card h2 {
+  margin: 0 0 16px 0;
+  color: #1d3557;
+}
+
+.admin-services-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-group label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #374151;
+}
+
+.form-group input,
+.form-group textarea {
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  padding: 10px 12px;
+  font-size: 0.95rem;
+  font-family: inherit;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #e63946;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.admin-services-form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.admin-services-cancel-btn {
+  border: 1px solid #d1d5db;
+  background: #fff;
+  padding: 10px 18px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.admin-services-save-btn {
+  border: none;
+  background: #e63946;
+  color: #fff;
+  padding: 10px 18px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.admin-services-save-btn:disabled,
+.admin-services-cancel-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+@media (max-width: 560px) {
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,172 @@
+/* client/src/components/BookingCard.css */
+
+.booking-card {
+  background-color: var(--white);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  border: 1px solid var(--gray-100);
+  transition: var(--transition);
+}
+
+.booking-card:hover {
+  box-shadow: var(--shadow-md);
+}
+
+/* ============================================
+   Header
+   ============================================ */
+.booking-card-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: var(--space-5);
+  background: linear-gradient(135deg, var(--secondary), var(--secondary-light));
+  gap: var(--space-4);
+}
+
+.booking-header-left {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.booking-service-name {
+  font-size: var(--text-xl);
+  font-weight: 700;
+  color: var(--white);
+  margin: 0;
+}
+
+.booking-id {
+  font-size: var(--text-xs);
+  color: rgba(255, 255, 255, 0.6);
+  margin: 0;
+  font-family: monospace;
+}
+
+/* ============================================
+   Body
+   ============================================ */
+.booking-card-body {
+  padding: var(--space-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.booking-info-section {
+  background-color: var(--gray-50);
+  border-radius: var(--radius);
+  padding: var(--space-4);
+}
+
+.booking-section-title {
+  font-size: var(--text-sm);
+  font-weight: 700;
+  color: var(--secondary);
+  margin-bottom: var(--space-3);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.booking-info-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-3);
+}
+
+.booking-info-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.info-label {
+  font-size: var(--text-xs);
+  color: var(--gray-400);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.info-value {
+  font-size: var(--text-sm);
+  color: var(--gray-800);
+  font-weight: 500;
+}
+
+.reg-number {
+  font-family: monospace;
+  font-weight: 700;
+  color: var(--secondary);
+  font-size: var(--text-base);
+}
+
+/* Address & Notes */
+.booking-address,
+.booking-notes,
+.booking-mechanic {
+  padding: var(--space-3) var(--space-4);
+  background-color: var(--gray-50);
+  border-radius: var(--radius);
+  font-size: var(--text-sm);
+  color: var(--gray-700);
+}
+
+.booking-notes p {
+  margin: var(--space-1) 0 0;
+  color: var(--gray-600);
+  font-style: italic;
+}
+
+/* ============================================
+   Footer (Admin Controls)
+   ============================================ */
+.booking-card-footer {
+  padding: var(--space-4) var(--space-5);
+  background-color: var(--gray-50);
+  border-top: 1px solid var(--gray-200);
+  display: flex;
+  align-items: flex-end;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+}
+
+.booking-status-update {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  flex: 1;
+  min-width: 200px;
+}
+
+.booking-status-update .form-select {
+  padding: 0.5rem 2rem 0.5rem 0.75rem;
+  font-size: var(--text-sm);
+}
+
+/* ============================================
+   Responsive
+   ============================================ */
+@media (max-width: 600px) {
+  .booking-info-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .booking-card-footer {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .booking-card-footer .btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 400px) {
+  .booking-info-grid {
+    grid-template-columns: 1fr;
+  }
+}
